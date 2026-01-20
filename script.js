@@ -149,11 +149,3 @@ class LinkedList {
 }
 
 const list = new LinkedList();
-
-list.append("cat");
-list.append("dog");
-list.append("leopard");
-list.append("kitty");
-list.append("gerbil");
-list.append("hamster");
-list.toString();
