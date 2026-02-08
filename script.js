@@ -139,12 +139,46 @@ class LinkedList {
     let fullString = "";
 
     let current = this.head;
+
     while (current) {
       fullString += `( ${current.value} )` + " -> ";
       current = current.nextNode;
     }
+
     fullString += "null";
+    console.log(fullString);
     return fullString;
+  }
+
+  insertAt(index, ...values) {
+    if (index < 0 || index > this.size()) {
+      throw new RangeError("Index must be within bounds of the linked list");
+    }
+
+    if (!this.head) return null;
+
+    let current = this.head;
+    let counter = 0;
+    if (index === 0) {
+      values.forEach((value) => {
+        this.head = new Node(value, this.head);
+      });
+      return;
+    }
+    while (current) {
+      if (counter === index - 1) {
+        const valueToSave = current.nextNode;
+
+        values.forEach((el) => {
+          const newNode = new Node(el);
+          current.nextNode = newNode;
+          current = newNode;
+        });
+        current.nextNode = valueToSave;
+      }
+      counter++;
+      current = current.nextNode;
+    }
   }
 }
 
