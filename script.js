@@ -180,6 +180,8 @@ class LinkedList {
       current = current.nextNode;
     }
   }
+
+  removeAt(index) {}
 }
 
 const list = new LinkedList();
